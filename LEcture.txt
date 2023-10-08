@@ -1,0 +1,182 @@
+ "Hello everyone, and welcome back to our Academy I'm Gaurav, and today we have an exciting journey ahead as we dive into the world of the Elastic Stack. Whether you're an IT enthusiast, a developer, a data analyst, or just someone curious about the latest tech trends, you're in for a treat!"
+
+In this video, we'll be uncovering the power of the Elastic Stack – a dynamic and versatile collection of open-source tools that empower organizations to collect, store, search, and analyze massive amounts of data in real-time. From its humble beginnings to becoming an integral part of modern data management, the Elastic Stack has transformed the way we handle information."
+ "But before we dive into the technical aspects, let's break down what the Elastic Stack is all about. It consists of 4 core components:
+
+1. **Elasticsearch**: 
+
+2. **Kibana**.
+
+3. **Logstash**: 
+4.Xpack
+
+So lets start with one of the components of elastic stack i.e elasticsearch
+
+elastic search is just one piece of this system.
+
+It started off as basically a scalable version of the Lucene  search framework, and it
+
+just added the ability to horizontally scale Lucene indicis, so we'll talk about shards of elastic
+
+search, and each shard in elastic search is just a single Lucene inverted index of documents, 
+so every shard is an actual Lucene instance of its own. However, elastic search has evolved to be much more than just
+
+Lucene spread out across a cluster,
+
+it can be used for much more than full text search now, and it can actually handle structure data and
+
+aggregate data very quickly. So, it's not just for search, you can handle structure data of any type and
+
+you'll see it's often used for things like aggregating logs and things like that.
+
+And what's really cool, is that it's often a much faster solution than things like Hadoop, Spark or
+
+Flink; you're actually building in new things into the elastic search all the time, with things like graph
+
+visualization and machine learning that actually make elastic search a competitor for things like Hadoop
+
+and Spark and Flink, over and above  it is time efficient, now what kind of time efficiency it is ?? this question may arise as the animation on the screen 
+THe time efficiency over here is related to data processing , in today's data driven world time and processing are the primary pillars.
+
+So for the right sorts of use cases, elastic search can be a very powerful tool and not just for search.     
+
+So let's zoom in and see what elastic search is really about. At a low level, it's really just about handling
+
+JSON requests, so we're not talking about pretty UIs or graphical interfaces, when we're
+
+just talking about elastic search itself, we're talking about a server that can process JSON requests
+
+and give you back JSON data, and it's up to you to actually do something useful with that.
+
+So for example, we're using curl here to actually issue a request with a GET verb for a given index
+
+called "tags", and we're just searching everything that's in it and you can see the results come back in
+
+JSON format here, and it's up to you to pass all this.
+
+So for example, we did get one result here called, for the movie, "Swimming to Cambodia", which has a given
+
+user I.D. and a tag of "Cambodia".
+
+So if this is part of a tags index that we're searching, this is what a result might actually look like.
+
+So, just to make it real,                                                                                     
+
+that's a sort of output you can expect from elastic search itself. But, there's more to it than just elastic
+
+search, there's also Kibana, which sits on top of elastic search and that's what gives you a pretty web
+
+UI. Hurray now we have Ui from those boring black background ,and you can see how things are becoming interesting so hold up and continue 
+till very end.
+
+So if you're not building your own application on top of elastic search or your own web application, Kibana
+
+can be used just for searching and visualizing what's in your search index graphically, and it can do
+
+very complex aggregations of data, it can graph your data, it can create charts and it's often used to do
+
+things like log analysis - so if you're familiar with things like Google Analytics, the combination of
+
+elastic search and Kibana can be used as sort of a way to roll your own Google Analytics at a very large
+
+scale.
+
+Let's zoom in and take a look at what kibana ui looks like.
+
+So here's an actual screenshot from Kibana looking at some real log data.
+
+You can see there's multiple dashboards you can actually look at that are built into Kibana
+
+and this lets you visualize things like; where the hits on my web site are coming from, and where are the error
+
+response codes and how are they all broken down, and what's my distribution of URLs, whatever you
+
+can dream up.
+
+So, there are a lot of specialized dashboards for certain kinds of data, and it brings home
+
+the point that elastic search is not just for searching text anymore; you can actually use it for aggregating
+
+things like apache access logs, which is what this view in Kibana does.
+
+But you can also use Kibana for pretty much anything else you want to. Later on this course we'll use
+
+it to visualize the complete works of movie index for example, and you can see how it can also
+
+be used for text data as well; it's a very flexible tool and a very powerful UI. We can also have something
+
+called logstash in the Beats framework, and these are ways of actually publishing data into elastic
+
+search, in real time, in a streaming format.     
+
+Till now we have seen search engine and an Ui now the question may arise from where do we get the data and who is bringing the data.                                                        
+
+So  for example, a collection of web server logs  that you  want to feed into
+
+your search index over time automatically, FileBeat can just sit on your web servers and look for new
+
+log files and parse them out, structure them in the way that elastic search wants, and then feed them into
+
+your elastic search cluster as they come in. Logstash does much the same thing, it can also be used to
+
+push data around between your servers and elastic search, but often it's used sort of an intermediate step,
+
+so you have a very lightweight FileBeat client that would sit on your web servers, logstash would accept
+
+those and sort of collect them and pool them up for feeding into elastic search over time. But it's
+
+not just made for log files, and it's not just made for elastic search and web servers either, these are
+
+all very general purpose systems that allow you to tie different systems together and publish data
+
+to wherever it needs to go, which might be elastic search, might be something else, but it's all part of the
+
+elastic stack still. But, it can also collect data from things like Amazon S3 or Kafka, or pretty
+
+much anything else you can imagine, databases, and we'll look at all of those examples later in this course.
+
+Now we have the data Ui and search engine , now the pipelinee seems to be perfectly binded isn't it.
+Let see
+ohh data pipeline is broken now what can be the reason lets guess
+Is it Security, is it monitoring or it is alerts 
+the answer is all of them and to fix these pieces theres is tool called XPACK.
+
+
+
+This is actually a paid add on offered by elastic.co, and it offers things like security and alerting
+
+and monitoring and reporting, features like that.
+
+It also contains some of the more advanced features that are just starting to make it into elastic search
+
+such as machine learning and graph exploration, so you can see that with X-Pack, elastic search starts
+
+to become a real competitor for much more complex and heavy weight systems like Flink and Spark.
+
+But that's another piece of the elastic stack when we talk about this larger ecosystem. You can see
+
+here that there are free parts of X-Pack, like the monitoring framework, that lets you  visualize
+
+what's going on with your cluster, you know,
+
+what's my cpu utilization system load?
+
+How much memory you have available?
+
+Things like that.
+
+So, when things start to go wrong with your cluster,
+
+this is a very useful tool to have for understanding the health of your cluster.
+
+So that's it at a high level, the elastic stack. 
+Gaurav: "Throughout this video series, we'll be hands-on with these components, exploring how they come together to solve real-world challenges. We'll set up Elasticsearch clusters, build interactive visualizations in Kibana, fine-tune our data pipelines in Logstash, and even dive into some advanced topics  and security features."
+
+
+
+Gaurav: "But remember, this is not  a one-way street! I want to hear from you too. Your questions, comments, and ideas are all welcome in the comment section . Let's make this journey engaging, interactive, and above all, a learning experience for all of us."
+
+[Cut to various fast-paced shots of Gaurav working with the Elastic Stack]
+
+Gaurav: "So buckle up, as we embark on this exciting adventure into the Elastic Stack., and let's explore the world of data, analytics, and open-source innovation together! Until next time, this is Gaurav signing off! and we will meet in the next lecture."
+
